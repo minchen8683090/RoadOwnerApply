@@ -1,0 +1,1508 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit" />
+    <title>道路业户经营许可</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- bootstrap-datetimepicker-->
+    <link rel="stylesheet" type="text/css" href="js/plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+    <!-- 默认样式-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- 自定义-->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+
+<body>
+    <div class="wrapper animated fadeInRight">
+        <div class="row">
+            <div class="clo-sm-12">
+                <div class="ibox">
+                    <!-- 页面标题区域，用来显示此页面的功能 -->
+                    <div class="title">
+                        道路业户经营许可
+                    </div>
+                    <form id="applyForm" action="" method="post" accept-charset="utf-8">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ibox">
+                                    <div class="ibox-title">
+                                        <h5>申请人信息</h5>
+                                    </div>
+                                    <div class="ibox-content">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>业户名称
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <input id="ownerName" name="ownerName" type="text" title="请输入长度不超过100个字符" rangeLength="[1, 100]" required/>
+                                                    </td>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>经济类型
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <select id="economicType" name="economicType">
+                                                            <optgroup label="内资">
+                                                                <option value="110" selected="selected">国有全资</option>
+                                                                <option value="120">集体全资</option>
+                                                                <option value="130">股份合作</option>
+                                                            </optgroup>
+                                                            <optgroup label="  联营">
+                                                                <option value="141">国有联营</option>
+                                                                <option value="142">集体联营</option>
+                                                                <option value="143">国有与集体联营</option>
+                                                                <option value="149">其他联营</option>
+                                                            </optgroup>
+                                                            <optgroup label="  有限责任(公司)">
+                                                                <option value="151">国有独资(公司)</option>
+                                                                <option value="159">其他有限责任(公司)</option>
+                                                                <option value="160">股份有限(公司)</option>
+                                                            </optgroup>
+                                                            <optgroup label="  私有">
+                                                                <option value="171">私有独资</option>
+                                                                <option value="172">私有合伙</option>
+                                                                <option value="173">私营有限责任(公司)</option>
+                                                                <option value="174">私营股份有限(公司)</option>
+                                                                <option value="175">个体经营</option>
+                                                                <option value="176">个人独资</option>
+                                                                <option value="179">其他私有</option>
+                                                                <option value="190">其他内资</option>
+                                                            </optgroup>
+                                                            <optgroup label="港、澳、台投资">
+                                                                <option value="210">内地和港澳台合资</option>
+                                                                <option value="220">内地和港澳台合作</option>
+                                                                <option value="230">港澳台独资</option>
+                                                                <option value="240">港澳台投资股份有限(公司)</option>
+                                                                <option value="290">其他港澳台投资</option>
+                                                            </optgroup>
+                                                            <optgroup label="国外投资">
+                                                                <option value="310">中外合资</option>
+                                                                <option value="320">中外合作</option>
+                                                                <option value="330">外资</option>
+                                                                <option value="340">国外投资股份有限(公司)</option>
+                                                                <option value="390">其他国外投资</option>
+                                                                <option value="900">其他</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>地址
+                                                    </td>
+                                                    <td class="td-right" colspan="3">
+                                                        <div id="distpicker">
+                                                            <div style="float: left;">
+                                                                <select name="province" id="province"></select>
+                                                            </div>
+                                                            <div style="float: left;">
+                                                                <select name="city" id="city"></select>
+                                                            </div>
+                                                            <div style="float: left;">
+                                                                <select name="town" id="town"></select>
+                                                            </div>
+                                                        </div>
+                                                        <div style="float: left;">
+                                                            <input id="address" name="address" type="text" title="请输入长度不超过100个字符" rangeLength="[1, 100]" required/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">邮编</td>
+                                                    <td class="td-right">
+                                                        <input id="postcode" name="postcode" type="text" title="请输入有效的邮政编码" postcode="true" />
+                                                    </td>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>负责人姓名
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <input id="principal" name="principal" type="text" title="请输入长度不超过30个字符" rangeLength="[1, 30]" required />
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>负责人身份证
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <div style="float: left;">
+                                                            <select id="principalIdCertType" name="principalIdCertType">
+                                                                <option selected="selected" value="1">身份证</option>
+                                                                <option value="2">军官证</option>
+                                                                <option value="3">警官证</option>
+                                                                <option value="4">外国护照</option>
+                                                                <option value="5">港澳台居民证</option>
+                                                                <option value="9">其他证件</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <input id="principalIdCertNum" name="principalIdCertNum" type="text" title="请输入有效的证件号码" required />
+                                                        </div>
+                                                    </td>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>负责人手机号码
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <input id="principalMobile" name="principalMobile" type="text" title="请输入有效的手机号码" mobile="true" required />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">负责人固定电话</td>
+                                                    <td class="td-right">
+                                                        <div style="float: left;">
+                                                            <input id="principalTel" name="principalTel" type="text" title="请输入有效的电话号码" phone="true" />
+                                                        </div>
+                                                        <div style="float: left;margin-top: 2%">
+                                                            <label>示例：027-12345678</label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="td-left">负责人职位</td>
+                                                    <td class="td-right">
+                                                        <input id="principalPost" name="principalPost" type="text" title="请输入长度不超过20个字符" rangeLength="[1, 20]" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>行业类别
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <select id="ownerType" name="ownerType" required>
+                                                            <option selected="selected" value="10">道路旅客运输经营许可</option>
+                                                            <option value="20">道路货运经营许可</option>
+                                                            <option value="30">道路危险货物运输经营许可</option>
+                                                            <option value="93">网络预约出租汽车经营行政许可</option>
+                                                            <option value="90">巡游出租汽车经营行政许可</option>
+                                                            <option value="62">道路运输站（场）经营许可（货运站经营许可）</option>
+                                                            <option value="61">道路运输站（场）经营许可（客运站经营许可）</option>
+                                                            <option value="40">机动车维修经营许可</option>
+                                                            <option value="50">机动车驾驶员培训许可</option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="td-left">
+                                                        申请许可事项
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <select id="applyItemName" name="applyItemName">
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ibox">
+                                    <div class="ibox-title">
+                                        <h5>公司信息</h5>
+                                    </div>
+                                    <div class="ibox-content">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-left">公司类型</td>
+                                                    <td class="td-right">
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input name="companyType" type="radio" value="0" checked>一般企业
+                                                            </label>
+                                                            <label>
+                                                                <input name="companyType" type="radio" value="1">分公司
+                                                            </label>
+                                                            <label>
+                                                                <input name="companyType" type="radio" value="2">子公司
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="td-left">总公司名称</td>
+                                                    <td class="td-right">
+                                                        <input id="parentCompany" name="parentCompany" type="text" title="请输入长度不超过100个字符" rangeLength="[1, 100]" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">总公司许可证号</td>
+                                                    <td class="td-right">
+                                                        <input id="parentLicenseNum" name="parentLicenseNum" type="text" title="请输入长度不超过20个字符" rangeLength="[1, 20]" />
+                                                    </td>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>统一社会信用代码/工商注册号
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <input id="businessLicense" name="businessLicense" type="text" title="请输入有效的统一社会信用代码/工商注册号" required/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">工商注册日期</td>
+                                                    <td class="td-right">
+                                                        <input id="busiLiceIssueDate" name="busiLiceIssueDate" class="form-control date" type="text" data-date-format="yyyy-mm-dd"
+                                                            dateISO="true" />
+                                                    </td>
+                                                    <td class="td-left">组织机构代码</td>
+                                                    <td class="td-right">
+                                                        <input id="enteOrgCode" name="enteOrgCode" type="text" title="请输入长度不超过10个字符" rangeLength="[1, 10]" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">法人姓名</td>
+                                                    <td class="td-right">
+                                                        <input id="legalName" name="legalName" type="text" title="请输入长度不超过20个字符" rangeLength="[1, 20]" />
+                                                    </td>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>法人身份证
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <div style="float: left;">
+                                                            <select id="legalIdCertType" name="legalIdCertType">
+                                                                <option selected="selected" value="1">身份证</option>
+                                                                <option value="2">军官证</option>
+                                                                <option value="3">警官证</option>
+                                                                <option value="4">外国护照</option>
+                                                                <option value="5">港澳台居民证</option>
+                                                                <option value="9">其他证件</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <input id="legalIdCertNum" name="legalIdCertNum" type="text" title="请输入有效的证件号码" required/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>法人手机号码
+                                                    </td>
+                                                    <td class="td-right" colspan="3">
+                                                        <input id="legalMobile" name="legalMobile" type="text" title="请输入有效的手机号码" mobile="true" required />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ownerGoods">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">道路普通货物运输</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbRoadGeneralCargoTransportation" type="checkbox" value="02101" />道路普通货物运输
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbRoadGeneralCargoTransportation" type="checkbox" value="02102" />道路普通货物运输(无车承运)
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">货物专用运输</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbSpecialCargoTransport" type="checkbox" value="02201" />货物专用运输(集装箱)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbSpecialCargoTransport" type="checkbox" value="02202" />货物专用运输(冷藏保鲜)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbSpecialCargoTransport" type="checkbox" value="02203" />货物专用运输(罐式)
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">大型物件运输</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbLargeObjectTransport" type="checkbox" value="02305" />大型物件运输
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ownerPassenger">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">班车客运</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbShuttlePassenger" type="checkbox" value="01101" />县内班车客运
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbShuttlePassenger" type="checkbox" value="01102" />县际班车客运
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">包车客运</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCharterPassenger" type="checkbox" value="01201" />县内包车客运
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCharterPassenger" type="checkbox" value="01202" />县际包车客运
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCharterPassenger" type="checkbox" value="01205" />区域经营
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">定线旅游</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbAlignmentTour" type="checkbox" value="01301" />县内定线旅游
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbAlignmentTour" type="checkbox" value="01302" />县际定线旅游
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">非定线旅游</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbNoAlignmentTour" type="checkbox" value="01401" />县内非定线旅游
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbNoAlignmentTour" type="checkbox" value="01402" />县际非定线旅游
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ownerDangerousPassenger">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">经营性道路危险货物运输</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03111" />危险货物运输(1类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03112" />危险货物运输(1类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03113" />危险货物运输(1类3项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03114" />危险货物运输(1类4项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03115" />危险货物运输(1类5项)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03116" />危险货物运输(1类6项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03121" />危险货物运输(2类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03122" />危险货物运输(2类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03123" />危险货物运输(2类3项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03131" />危险货物运输(3类)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03141" />危险货物运输(4类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03142" />危险货物运输(4类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03143" />危险货物运输(4类3项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03151" />危险货物运输(5类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03152" />危险货物运输(5类2项)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03161" />危险货物运输(6类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03162" />危险货物运输(6类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03170" />危险货物运输(7类)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03181" />危险货物运输(8类)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03191" />危险货物运输(9类)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03192" />剧毒化学品
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03193" />医疗废物
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbOperationalDangerousPassenger" type="checkbox" value="03194" />危险废物
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">非经营性危险货物运输</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03211" />危险货物运输(1类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03212" />危险货物运输(1类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03213" />危险货物运输(1类3项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03214" />危险货物运输(1类4项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03215" />危险货物运输(1类5项)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03216" />危险货物运输(1类6项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03221" />危险货物运输(2类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03222" />危险货物运输(2类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03223" />危险货物运输(2类3项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03231" />危险货物运输(3类)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03241" />危险货物运输(4类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03242" />危险货物运输(4类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03243" />危险货物运输(4类3项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03251" />危险货物运输(5类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03252" />危险货物运输(5类2项)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03261" />危险货物运输(6类1项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03262" />危险货物运输(6类2项)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03270" />危险货物运输(7类)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03281" />危险货物运输(8类)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03291" />危险货物运输(9类)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03292" />剧毒化学品
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03293" />医疗废物
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbNoOperationalDangerousPassenger" type="checkbox" value="03294" />危险废物
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>品名 (如是剧毒化学品，应在品名后括号标注“剧毒”)</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">品名</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <input id="productName" name="productName" type="text" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>企业信息</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">运输类别</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbTransportationCategory" type="checkbox" value="isProfessional" />是专业运输企业
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ownerNetPassenger">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">网络预约出租汽车客运</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbNetPassenger" type="checkbox" value="09301" />网络预约出租汽车客运
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ownerCoachPassenger">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">客运出租运输</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCoachPassenger" type="checkbox" value="09101" />客运出租运输
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="goodsStation">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">道路货物运输站</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbGoodsStation" type="checkbox" value="06201" />道路货物运输站
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbGoodsStation" type="checkbox" value="06202" />道路货物运输站(交易市场)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbGoodsStation" type="checkbox" value="06203" />道路货物运输站(仓储理货)
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="passengerStation">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">道路旅客运输站</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbPassengerStation" type="checkbox" value="06101" />道路旅客运输站
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbPassengerStation" type="checkbox" value="06102" />停车场
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ownerMaint">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">一类汽车维修</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbOneTypeOfCarRepair" type="checkbox" value="04101" />一类汽车维修(大中型客车)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbOneTypeOfCarRepair" type="checkbox" value="04102" />一类汽车维修(大型货车)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbOneTypeOfCarRepair" type="checkbox" value="04103" />一类汽车维修(小型车)
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">二类汽车维修</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbTwoTypeOfCarRepair" type="checkbox" value="04201" />二类汽车维修(大中型客车)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbTwoTypeOfCarRepair" type="checkbox" value="04202" />二类汽车维修(大型货车)
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbTwoTypeOfCarRepair" type="checkbox" value="04203" />二类汽车维修(小型车)
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">三类汽车维修</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04301" />发动机维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04302" />车身维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04303" />电气系统维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04304" />自动变速器维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04307" />轮胎动平衡及修补
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04308" />四轮定位检测调整
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04309" />汽车润滑与养护
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04310" />喷油泵和喷油嘴维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04311" />曲轴修磨
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04312" />气缸镗磨
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04313" />散热器维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04314" />空调维修
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04315" />汽车美容装璜(蓬布、座垫、贴膜及内装饰)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04316" />汽车玻璃安装及修复
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbThreeTypeOfCarRepair" type="checkbox" value="04318" />汽车综合小修
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">其他</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCarRepairOther" type="checkbox" value="04104" />危险货物运输车辆维修
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCarRepairOther" type="checkbox" value="04601" />汽车快修
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCarRepairOther" type="checkbox" value="04602" />摩托车维修
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCarRepairOther" type="checkbox" value="04603" />一类其他机动车维修
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbCarRepairOther" type="checkbox" value="04604" />二类其他机动车维修
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="drivingSchool">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>申请许可内容</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td-left">普通机动车驾驶员培训</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05111" />A1(大型客车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05112" />A2(通用货车半挂车(牵引车))
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05113" />A3(城市公交车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05121" />B1(中型客车)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05122" />B2(大型货车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05131" />C1(小型汽车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05132" />C2(小型自动挡汽车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05133" />C3(低速汽车(含低速载货汽车和三轮汽车))
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05134" />C4(低速汽车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05135" />C5(残疾人专用小型自动挡载客汽车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05140" />D(摩托车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05150" />E(摩托车)
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05160" />F(摩托车)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05170" />M(其他车型)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05171" />N(其他车型)
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input name="cbGeneralMotorVehicleDriverTraining" type="checkbox" value="05172" />P(其他车型)
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">道路运输驾驶员从业资格培训</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbRoadTransportDriverQualificationTraining" type="checkbox" value="05201" />客运
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbRoadTransportDriverQualificationTraining" type="checkbox" value="05202" />货运
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbRoadTransportDriverQualificationTraining" type="checkbox" value="05203" />危险货运
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbRoadTransportDriverQualificationTraining" type="checkbox" value="05204" />其他
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-left">机动车驾驶员培训教练场经营</td>
+                                                        <td class="td-right" colspan="3">
+                                                            <label class="checkbox-inline">
+                                                                <input name="cbDriverCoachingStationManagement" type="checkbox" value="05301" />机动车驾驶员培训教练场经营
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ibox">
+                                    <div class="ibox-title">
+                                        <h5>经办人</h5>
+                                    </div>
+                                    <div class="ibox-content">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>经办人姓名
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <input id="operator" name="operator" type="text" title="请输入长度不超过50个字符" rangeLength="[1, 50]" required/>
+                                                    </td>
+                                                    <td class="td-left">
+                                                        <font style="color:#F00;">*</font>经办人手机号码
+                                                    </td>
+                                                    <td class="td-right">
+                                                        <input id="mobile" name="mobile" type="text" title="请输入有效的手机号码" mobile="true" required />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">传真</td>
+                                                    <td class="td-right">
+                                                        <input id="fax" name="fax" type="text" title="请输入长度不超过20个字符" rangeLength="[1, 20]" />
+                                                    </td>
+                                                    <td class="td-left">
+                                                        经办人身份证</td>
+                                                    <td class="td-right">
+                                                        <input id="operatorIdCardNum" name="operatorIdCardNum" type="text" title="请输入有效的证件号码" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-left">固定电话</td>
+                                                    <td class="td-right">
+                                                        <input id="telephone" name="telephone" type="text" title="请输入有效的电话号码" phone="true" />
+                                                    </td>
+                                                    <td class="td-left">电子邮箱</td>
+                                                    <td class="td-right">
+                                                        <input id="email" name="email" type="text" title="请输入有效的邮箱" email="true" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 底部按钮区域 -->
+                        <div class="ibox-foot ibox-line btn-container">
+                            <input class="btn btn-info" id="btn-save" type="button" value="保存数据" onclick="getFormObjects()" />
+                            <input class="btn btn-info" id="btn-save" type="button" value="设置数据" onclick="setData()" />
+                        </div>
+                        <!-- 页面底部区域，预留，可以展现功能介绍，数据说明等，可能不会显示出来 -->
+                        <div class="ibox-footer hidden">
+                            页面底部区域
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-migrate-1.3.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- datetimepicker -->
+    <script src="js/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/plugins/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <!-- dialog-->
+    <script src="js/plugins/layer/layer.js"></script>
+    <!-- bootstrap-Validator-->
+    <script src="js/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="js/plugins/jquery-validation/additional-methods.js"></script>
+    <script src="js/plugins/jquery-validation/localization/messages_zh.js"></script>
+    <!-- 自定义-->
+    <script src="js/custom.js"></script>
+
+    <!-- <script src="js/city.js"></script> -->
+    <script src="js/distpicker.data.js"></script>
+    <script src="js/distpicker.js"></script>
+    <script>
+        //选择申请许可事项
+        var ownerPassenger = document.getElementById('ownerPassenger');
+        var ownerGoods = document.getElementById('ownerGoods');
+        var ownerDangerousPassenger = document.getElementById('ownerDangerousPassenger');
+        var ownerNetPassenger = document.getElementById('ownerNetPassenger');
+        var ownerCoachPassenger = document.getElementById('ownerCoachPassenger');
+        var goodsStation = document.getElementById('goodsStation');
+        var passengerStation = document.getElementById('passengerStation');
+        var ownerMaint = document.getElementById('ownerMaint');
+        var drivingSchool = document.getElementById('drivingSchool');
+
+        ownerGoods.style.display = "none";
+        ownerDangerousPassenger.style.display = "none";
+        ownerNetPassenger.style.display = "none";
+        ownerCoachPassenger.style.display = "none";
+        goodsStation.style.display = "none";
+        passengerStation.style.display = "none";
+        ownerMaint.style.display = "none";
+        drivingSchool.style.display = "none";
+
+        var ownerType = document.getElementById('ownerType');//行业类别
+        var applyItemName = document.getElementById('applyItemName');//申请许可事项
+
+        var applyItemNameArray = [["10", "道路客运（班线、包车、旅游）经营"],//道路旅客运输经营许可
+        ["20", "道路货物（危险货物除外）运输经营"],//道路货运经营许可
+        ["30", "道路危险货物运输经营", "非经营性道路危险货物运输"],//道路危险货物运输经营许可
+        ["93", "网络预约出租汽车经营行政许可"],//网络预约出租汽车经营行政许可
+        ["90", "巡游出租汽车经营行政许可"],//巡游出租汽车经营行政许可
+        ["62", "道路货物运输站（场）经营"],//道路运输站（场）经营许可（货运站经营许可）
+        ["61", "道路旅客运输站经营"],//道路运输站（场）经营许可（客运站经营许可）
+        ["40", "危险货物运输车辆维修经营", "摩托车维修经营", "汽车维修经营或者其他机动车维修经营", "机动车维修连锁经营", "机动车维修企业变更经营范围、作业场所"],//机动车维修经营许可
+        ["50", "普通机动车驾驶员培训", "机动车驾驶人培训教练场经营"]];//机动车驾驶员培训许可
+
+        ownerType.onchange = function () {
+            var applyItemNameOptins = applyItemName.getElementsByTagName("option");
+            for (var i = 0; i < applyItemNameOptins.length; i++) {
+                applyItemName.removeChild(applyItemNameOptins[i]);
+                i--;
+            }
+
+            applyItemName.childNodes = "";
+            var ownerType = this.value;
+            if (ownerType == "") {
+                return;
+            }
+
+            for (var i = 0; i < applyItemNameArray.length; i++) {
+                for (var j = 1; j < applyItemNameArray[i].length; j++) {
+                    if (ownerType == applyItemNameArray[i][0]) {
+                        var applyItemNameText = applyItemNameArray[i][j];
+                        var applyItemNameTextNode = document.createTextNode(applyItemNameText);
+                        var applyItemNameOptionNode = document.createElement("option");
+                        applyItemNameOptionNode.appendChild(applyItemNameTextNode);
+                        applyItemName.appendChild(applyItemNameOptionNode);
+                    }
+                }
+            }
+
+            ownerGoods.style.display = this.value == "20" ? "block" : "none";
+            ownerPassenger.style.display = this.value == "10" ? "block" : "none";
+            ownerDangerousPassenger.style.display = this.value == "30" ? "block" : "none";
+            ownerNetPassenger.style.display = this.value == "93" ? "block" : "none";
+            ownerCoachPassenger.style.display = this.value == "90" ? "block" : "none";
+            goodsStation.style.display = this.value == "62" ? "block" : "none";
+            passengerStation.style.display = this.value == "61" ? "block" : "none";
+            ownerMaint.style.display = this.value == "40" ? "block" : "none";
+            drivingSchool.style.display = this.value == "50" ? "block" : "none";
+        }
+
+        var g_data = '';
+
+        /*初始化页面*/
+        $(document).ready(function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            if (month < 10) {
+                month = "0" + month;
+            }
+            if (day < 10) {
+                day = "0" + day;
+            }
+            $("#applyDate").val(year + "-" + month + "-" + day);
+
+            //获取表单数据
+            getFormData();
+
+            //初始化申请许可事项
+            var ownerTypeDefaults = ownerType.value;
+            for (var i = 0; i < applyItemNameArray.length; i++) {
+                for (var j = 1; j < applyItemNameArray[i].length; j++) {
+                    if (ownerTypeDefaults == applyItemNameArray[i][0]) {
+                        var applyItemNameText = applyItemNameArray[i][j];
+                        var applyItemNameTextNode = document.createTextNode(applyItemNameText);
+                        var applyItemNameOptionNode = document.createElement("option");
+                        applyItemNameOptionNode.appendChild(applyItemNameTextNode);
+                        applyItemName.appendChild(applyItemNameOptionNode);
+                    }
+                }
+            }
+
+            var businessIndexId = getQueryString("businessIndexId");
+            //如果是运政在线政务网申请相关功能页面，需要等待全部数据加载完再将iframe自适应高度
+            if (businessIndexId == "") {
+                if (window.parent != null)
+                    ___setIframeHeight(window.parent.document.getElementById('main_iframe'));
+            }
+
+            //初始化表单数据
+            if (window.parent != null) {
+                if (window.parent.projectItem != null && window.parent.projectItem != "") {
+                    var itemName = window.parent.projectItem.name;
+                    if (itemName) {
+                        //根据事项名称设置行业类别
+                        setOwnerTypeByItemName(itemName);
+                    }
+                }
+
+                if (window.parent.selfmadeformdata != null && window.parent.selfmadeformdata != "") {
+                    setFormObjects(window.parent.selfmadeformdata);
+                } else {
+                    var strBusinessIndexId = getQueryString("businessIndexId");
+                    if (!strBusinessIndexId) {
+                        $("#distpicker").distpicker({
+                            placeholder: false
+                        });
+                    }
+                }
+            }
+        });
+
+        /**
+         * 根据事项名称设置行业类别
+        */
+        function setOwnerTypeByItemName(itemName) {
+            if (itemName.indexOf("旅客") > -1) {
+                //道路旅客运输经营许可（含班线、包车、旅游客运）
+                $("#ownerType").val("10");
+            } else if (itemName.indexOf("客运班线") > -1) {
+                //增加客运班线经营许可
+                $("#ownerType").val("10");
+            } else if (itemName.indexOf("道路货运") > -1) {
+                //道路货运经营许可
+                $("#ownerType").val("20");
+            } else if (itemName.indexOf("货运站") > -1) {
+                //道路运输站（场）经营许可（货运站经营许可）
+                $("#ownerType").val("62");
+            } else if (itemName.indexOf("客运站") > -1) {
+                //道路运输站（场）经营许可（客运站经营许可）
+                $("#ownerType").val("61");
+            } else if (itemName.indexOf("放射性物品") > -1 || itemName.indexOf("道路危险") > -1) {
+                //放射性物品道路运输许可（非经营性） 
+                //放射性物品道路运输许可（经营性）  
+                //道路危险货物运输经营许可（经营性） 
+                //道路危险货物运输经营许可（非经营性）  
+                $("#ownerType").val("30");
+            } else if (itemName.indexOf("巡游出租") > -1) {
+                //巡游出租汽车经营行政许可 
+                $("#ownerType").val("90");
+            } else if (itemName.indexOf("网络预约") > -1) {
+                //网络预约出租汽车经营行政许可 
+                $("#ownerType").val("93");
+            } else if (itemName.indexOf("机动车维修") > -1) {
+                //机动车维修经营许可 
+                $("#ownerType").val("40");
+            } else if (itemName.indexOf("机动车驾驶员") > -1) {
+                //机动车驾驶员培训许可 
+                $("#ownerType").val("50");
+            }
+            $("#ownerType").attr("disabled", "disabled");
+            $("#ownerType").change();
+        }
+
+        /**
+         * 获取表的对象，并把对象,生成序列化的String数据
+         * 父页面会调用这个方法，获取表单信息
+        */
+        function getFormObjects() {
+            var principalIdCertNum = $("#principalIdCertNum").val();
+            if (!checkIDCard(principalIdCertNum)) {
+                layerDanger("负责人身份证号不是合法的！");
+                return;
+            }
+
+            var legalIdCertNum = $("#legalIdCertNum").val();
+            if (!checkIDCard(legalIdCertNum)) {
+                layerDanger("法人身份证号不是合法的！");
+                return;
+            }
+
+            var operatorIdCardNum = $("#operatorIdCardNum").val();
+            if (operatorIdCardNum != "") {
+                if (!checkIDCard(operatorIdCardNum)) {
+                    layerDanger("经办人身份证号不是合法的！");
+                    return;
+                }
+            }
+
+            var businessLicense = $("#businessLicense").val();
+            if (!checkSocialCreditCode(businessLicense)) {
+                layerDanger("请输入正确的统一社会信用代码！");
+                return;
+            }
+
+            var enteOrgCode = $("#enteOrgCode").val();
+            if (enteOrgCode != "") {
+                if (!checkOrganCode(enteOrgCode)) {
+                    layerDanger("请输入正确的组织机构代码！");
+                    return;
+                }
+            }
+
+            if ($('#applyForm').valid()) {
+                /*验证成功过后，把表单的内容组装成 键值对的对象*/
+                var frmForm = document.getElementById("applyForm");
+                var obj = {};
+                var obj_applyBusiScopeNames = {};//存储申请的经营范围名称
+                for (var i = 0; i < frmForm.elements.length; i++) {
+                    var ctl = frmForm.elements[i];
+                    var name = ctl.name;
+
+                    if (ctl.type.toLowerCase() == "radio") {
+                        //ie浏览器不兼容
+                        // var el = document.getElementsByName(name);
+                        // var check_val = [];
+                        // for (k in el) {
+                        //     if (el[k].checked) {
+                        //         check_val.push(el[k].value);
+                        //     }
+                        // }
+
+                        var check_val = [];
+                        var checks = $("input[name='" + name + "']:checked");
+                        $.each(checks, function (idx, obj) {
+                            check_val.push(obj.value);
+                        });
+
+                        obj[$.trim(name)] = $.trim(check_val.join(","));
+                    }
+                    else if (ctl.type.toLowerCase() == "checkbox") {
+                        //ie浏览器不兼容
+                        // var el = document.getElementsByName(name);
+                        // var check_val = [];
+                        // var check_name = [];
+                        // for (k in el) {
+                        //     if (el[k].checked) {
+                        //         check_val.push(el[k].value);
+                        //         check_name.push($.trim(el[k].nextSibling.data));
+                        //     }
+                        // }
+
+                        var check_val = [];
+                        var check_name = [];
+                        var checks = $("input[name='" + name + "']:checked");
+                        $.each(checks, function (idx, obj) {
+                            check_val.push(obj.value);
+                            check_name.push($.trim($(obj).parent("label").text()));
+                        });
+
+                        obj[$.trim(name)] = $.trim(check_val.join(","));
+                        obj_applyBusiScopeNames[$.trim(name) + "Name"] = $.trim(check_name.join(","));
+                    }
+                    else {
+                        if (name.indexOf(";") > 0) {
+                            var arr = name.split(";");
+                            $(arr).each(function (i, item) {
+                                if ($.trim(item) != "" && $.trim(ctl.value) != "") {
+                                    obj[$.trim(item)] = $.trim(ctl.value);
+                                }
+                            });
+                        } else {
+                            if ($.trim(name) != "" && $.trim(ctl.value) != "") {
+                                obj[$.trim(name)] = $.trim(ctl.value);
+                            }
+                        }
+                    }
+                }
+
+                var check_applyBusiScopeNames = [];//获取申请的经营范围名称
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbRoadGeneralCargoTransportationName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbSpecialCargoTransportName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbLargeObjectTransportName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbShuttlePassengerName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbCharterPassengerName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbAlignmentTourName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbNoAlignmentTourName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbOperationalDangerousPassengerName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbNoOperationalDangerousPassengerName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbNetPassengerName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbCoachPassengerName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbGoodsStationName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbPassengerStationName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbOneTypeOfCarRepairName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbTwoTypeOfCarRepairName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbThreeTypeOfCarRepairName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbCarRepairOtherName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbGeneralMotorVehicleDriverTrainingName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbRoadTransportDriverQualificationTrainingName"]);
+                setCheckApplyBusiScope(check_applyBusiScopeNames, obj_applyBusiScopeNames["cbDriverCoachingStationManagementName"]);
+                var check_applyBusiScopeCodes = [];//获取申请的经营范围代码
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbRoadGeneralCargoTransportation"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbSpecialCargoTransport"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbLargeObjectTransport"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbShuttlePassenger"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbCharterPassenger"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbAlignmentTour"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbNoAlignmentTour"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbOperationalDangerousPassenger"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbNoOperationalDangerousPassenger"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbNetPassenger"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbCoachPassenger"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbGoodsStation"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbPassengerStation"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbOneTypeOfCarRepair"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbTwoTypeOfCarRepair"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbThreeTypeOfCarRepair"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbCarRepairOther"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbGeneralMotorVehicleDriverTraining"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbRoadTransportDriverQualificationTraining"]);
+                setCheckApplyBusiScope(check_applyBusiScopeCodes, obj["cbDriverCoachingStationManagement"]);
+
+                obj["applyBusiScopeNames"] = $.trim(check_applyBusiScopeNames.join(","));
+                obj["applyBusiScopeCodes"] = $.trim(check_applyBusiScopeCodes.join(","));
+                if (obj["applyBusiScopeNames"] == "" || obj["applyBusiScopeCodes"] == "") {
+                    layerDanger("请至少选择一个申请许可内容！");
+                    return;
+                }
+
+                var datas = JSON.stringify(obj);
+                g_data = datas;
+                //console.log(datas);
+                //var datas = $("#form2").serialize();
+                return datas;
+            }
+        }
+
+        function setCheckApplyBusiScope(checkArray, str) {
+            if (str != "") {
+                checkArray.push(str);
+            }
+        }
+
+        /*
+         * 根据之前填报的数据，填充此表单表的对象 
+         * 父页面会调用这个方法，填充表单信息
+        */
+        // function setFormObjects(formdatas) {
+        //     if (formdatas != null && formdatas != "") {
+        //         var jo = JSON.parse(formdatas);
+        //         if (jo != null) {
+        //             $.each(jo, function (i, val) {
+        //                 var targetName = $("[name='" + i + "']");
+        //                 $("[name='" + i + "']").val(val);
+        //             });
+        //         }
+        //     }
+        // }
+        function setFormObjects(formdatas) {
+            if (formdatas != null && formdatas != "") {
+                var jo = JSON.parse(formdatas);
+                if (jo != null) {
+                    $.each(jo, function (i, val) {
+                        var checkboxAndRadioName = $("[name='" + i + "']");
+                        if (checkboxAndRadioName.prop("type") == "checkbox" || checkboxAndRadioName.prop("type") == "radio") {
+                            $("input[name='" + i + "']").prop("checked", false);
+
+                            if (val != "") {
+                                var valChecked = val.split(",");
+                                $.each(valChecked, function (j, el) {
+                                    $("input[name='" + i + "'][value='" + el + "']").prop("checked", true);
+                                })
+                            }
+                        }
+                        else {
+                            var targetName = $("[name='" + i + "']");
+                            $("[name='" + i + "']").val(val);
+                        }
+                    });
+
+                    $("#ownerType").change();
+                    $("#applyItemName").val(jo.applyItemName);
+
+                    $("#distpicker").distpicker({
+                        placeholder: false,
+                        province: jo.province,
+                        city: jo.city,
+                        district: jo.town
+                    });
+                }
+            }
+
+            if (window.parent != null) {
+                ___setIframeHeight(window.parent.document.getElementById('main_iframe'));
+                //运政在线政务网申请相关功能嵌套iframe
+                ___setIframeHeight(window.parent.document.getElementById('mainFrame'));
+            }
+        }
+
+        /**
+         * 自适应高度
+         */
+        function ___setIframeHeight() {
+            var topWindow = window;
+            for (var i = 0; i < topWindow.parent.frames.length; i++) {
+                if (topWindow.parent.frames[i].window.document == topWindow.document) {
+                    var iframe = topWindow.parent.frames[i];
+                    var parentIFrameId = iframe.name;
+                    iframe = window.parent.document.getElementById(parentIFrameId);
+                    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                    if (iframeWin.document.body) {
+                        iframe.height = iframeWin.document.body.scrollHeight || iframeWin.document.documentElement.scrollHeight;
+                        var tt = iframe.height;
+                    }
+                }
+            }
+        }
+
+        /**
+         * 测试设置数据
+         */
+        function setData() {
+            setFormObjects(g_data);
+        }
+
+        //获取url参数
+        function getQueryString(name) {
+            var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+            if (result == null || result.length < 1) {
+                return "";
+            }
+            return result[1];
+        }
+
+        //获取FormData
+        function getFormData() {
+            var strBusinessIndexId = getQueryString("businessIndexId");
+
+            if (strBusinessIndexId != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "../../Ajax/WebServiceHandler.aspx/GetANetBusinessIndexApplyFormData", // 调动后台页面方法
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: '{"strBusinessIndexId":"' + strBusinessIndexId + '"}',
+                    success: function (data) {
+                        var msg = data.d.split('|');
+                        if (msg[0] == "success") {
+                            var jsonObj = JSON.parse(msg[1]);
+                            setFormObjects(JSON.stringify(jsonObj["selfmadeformdata"]));
+                            //setFormObjects(JSON.stringify(jsonObj[0]));
+                        }
+                    }
+                });//Ajax End
+            }
+        }
+    </script>
+</body>
+
+</html>
